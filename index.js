@@ -6,9 +6,9 @@ const fs = require('fs').promises;
 const app = express();
 const port = process.env.PORT || 3000; // Choose any port you prefer
 
-app.get('/generate', async (req, res) => {
+app.get('/rank', async (req, res) => {
   try {
-    const { id, name, backgroundimage, needxp, currenexp, level } = req.query;
+    const { id, name, thread, backgroundimage, needxp, currenexp, level } = req.query;
 
     // Fetch Facebook profile picture
     const facebookPicture = await axios.get(
@@ -24,7 +24,7 @@ app.get('/generate', async (req, res) => {
       .setNeedxp(needxp)
       .setCurrxp(currenexp)
       .setLevel(level)
-      .setRank('https://i.ibb.co/Wn9cvnv/FABLED.png')
+      .setRank(thread)
       .toAttachment();
 
     const imageData = rankImage.toBuffer();
