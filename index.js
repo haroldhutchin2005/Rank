@@ -4,7 +4,7 @@ const knights = require('knights-canvas');
 const fs = require('fs').promises;
 
 const app = express();
-const port = process.env.PORT || 3000; // Choose any port you prefer
+const port = process.env.PORT || 8080; // Choose any port you prefer
 
 app.get('/rank', async (req, res) => {
   try {
